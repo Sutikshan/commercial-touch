@@ -1,0 +1,108 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$id": "userSchema#",
+    "description": "This schema represents a registered user, Admin user or Super user of Commercial Touch.",
+    "type": "object",
+    "required": [
+        "header",
+        "body"
+    ],
+    "properties": {
+        "header": {
+            "type": "object",
+            "properties": {
+                "createdOn": {
+                    "description": "Date-time of user registration.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "createdBy": {
+                    "description": "user can be registered by Admin or Super Admin user in this case id of Admin or SuperAdmin.",
+                    "type": "string"
+                }
+            },
+            "required": []
+        },
+        "body": {
+            "type": "object",
+            "properties": {
+                "userType": {
+                    "description": "Super Admin, admin, agent, builder or normal user.",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "user name.",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "user's email id.",
+                    "type": "string",
+                    "format": "email"
+                },
+                "countryCode": {
+                    "description": "country code for mobile number.",
+                    "type": "string"
+                },
+                "mobile": {
+                    "description": "user's mobile number.",
+                    "type": "number"
+                },
+                "password": {
+                    "description": "user's password.",
+                    "type": "string"
+                },
+                "company": {
+                    "description": "This object will contain all the business and office related details of Agent/Builder.",
+                    "type": "object",
+                    "properties": {
+                        "dealType": {
+                            "description": "Agent/builder deals in selling or renting out properties",
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        },
+                        "transactionType": {
+                            "description": "Agent/builder do transaction in Rent/Lease, Pre-Launch, Original booking, Resale or Others",
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        },
+                        "propertyType": {
+                            "description": "Agent/builder deal in property type showroom, office space etc.",
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        },
+                        "valueAddedServices": {
+                            "description": "Agent/builder provide services like Property Registry, Loan etc.",
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        },
+                        "expertiseIn": {
+                            "description": "Agent/builder expertise.",
+                            "type": "string"
+                        },
+                        "operatingSince": {
+                            "description": "Date-time since Agent/builder operating.",
+                            "type": "string",
+                            "format": "date-time"
+                        }                                                                 
+                    }
+                }
+            },
+            "required": [
+                "userType",
+                "name",
+                "email",
+                "countryCode",
+                "mobile",
+                "password"
+            ]
+        }
+    }
+}
