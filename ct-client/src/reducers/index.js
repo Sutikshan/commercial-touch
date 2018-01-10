@@ -6,7 +6,7 @@ import SuperAdminReducer from '../SuperAdmin/SuperAdminReducer'
 const ctApp = combineReducers({
   HeaderReducer,
   LoginReducer,
-  SuperAdminReducer
+  SuperAdmin:  SuperAdminReducer,
 })
 
 export default ctApp
